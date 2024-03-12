@@ -9,10 +9,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Check out the repo
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
     
     - name: Login to Azure
-      uses: azure/login@v1
+      uses: azure/login@v2
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
 
@@ -20,8 +20,9 @@ jobs:
       uses: Azure/get-keyvault-secrets@v1
       with:
         # Name of the azure key vault
-        keyvault: SavillVaultRBAC
+        keyvault: ${{ vars.KEYVAULTNAME}}
         # Name of the secret to be fetched
+        # secrets: ${{ vars.SECRET_NAME }}
         secrets: Secret1
       id: getKeyVaultSecrets
       
