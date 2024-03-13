@@ -20,7 +20,7 @@ jobs:
       uses: Azure/get-keyvault-secrets@v1
       with:
         # Name of the azure key vault
-        keyvault: ${{ vars.KEYVAULTNAME}}
+        keyvault: ${{ vars.KEYVAULT_NAME}}
         # Name of the secret to be fetched
         # secrets: ${{ vars.SECRET_NAME }}
         secrets: Secret1
